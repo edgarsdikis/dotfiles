@@ -26,7 +26,7 @@ return {
 
 			-- Highlighting configuration
 			highlight = {
-				enable = false, -- Enable Treesitter highlighting
+				enable = true, -- Enable Treesitter highlighting
 				additional_vim_regex_highlighting = false, -- Disable fallback highlighting
 			},
 
