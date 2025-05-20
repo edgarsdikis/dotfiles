@@ -12,3 +12,12 @@ vim.wo.number = true                                     -- Enable line numbers
 vim.wo.relativenumber = true                             -- Enable relative line numbers
 vim.opt.cursorline = true                                -- Highlights the current line (optional)
 vim.g.mapleader = " "
+
+-- Create a split with mini.files
+vim.keymap.set("n", "<leader>vs", function()
+    vim.cmd("vsplit")
+end, { desc = "Vertical split" })
+
+vim.keymap.set("n", "<leader>hs", function()
+    vim.cmd("split")
+end, { desc = "Horizontal split" })
