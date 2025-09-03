@@ -28,23 +28,38 @@ return {
                     max_height = 20,
                     border = "rounded",
                 },
+                -- Prevent duplicate diagnostics
+                update_in_insert = false,
+                severity_sort = true,
             })
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
-            -- Configure LSP properly
-            lspconfig.lua_ls.setup({
+
+            -- Store servers to prevent duplicates
+            local servers_setup = {}
+
+            local function setup_server(server_name, config)
+                if servers_setup[server_name] then
+                    return -- Already setup, skip
+                end
+                lspconfig[server_name].setup(config)
+                servers_setup[server_name] = true
+            end
+
+            -- Configure LSP servers
+            setup_server("lua_ls", {
                 capabilities = capabilities,
             })
-            lspconfig.clangd.setup({
+            setup_server("clangd", {
                 capabilities = capabilities,
             })
-            lspconfig.ts_ls.setup({
+            setup_server("ts_ls", {
                 capabilities = capabilities,
             })
-            lspconfig.solargraph.setup({
+            setup_server("solargraph", {
                 capabilities = capabilities,
             })
-            lspconfig.pyright.setup({
+            setup_server("pyright", {
                 capabilities = capabilities,
             })
             -- Create autocommand for LSP attachment

@@ -130,6 +130,8 @@ A carefully crafted development environment using Neovim and tmux with a focus o
 - telescope.nvim - Fuzzy finder
 - gitsigns.nvim - Git integration
 - none-ls.nvim - Formatting and diagnostics
+- live-preview.nvim - 
+- debugprint.nvim - 
 
 ## Customization
 

@@ -10,7 +10,6 @@ return {
 				null_ls.builtins.formatting.isort,
                 null_ls.builtins.formatting.rubocop,
                 null_ls.builtins.formatting.djlint,
-				-- null_ls.builtins.diagnostics.pylint,
 				null_ls.builtins.diagnostics.rubocop,
 				null_ls.builtins.diagnostics.djlint,
 			},
